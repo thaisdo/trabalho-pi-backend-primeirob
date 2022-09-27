@@ -1,0 +1,474 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API - da Schoola",
+        "description": "API Rest da Schoola de Inglês",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/usuario": {
+            "description": "Exibe os usuários",
+            "get": {
+                "description": "Lista todos os usuários",
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Usuário"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuários não encontrados"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cria um Usuário",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuário"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com Sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/usuario/{id}": {
+            "get": {
+                "description": "Exibe o usuário pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuário"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "description": "Atualiza o Usuário pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Usuário"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário atualizado com sucesso",
+                        "content": {}
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta um usuário pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Usuário deletado com sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/cobranca": {
+            "description": "Exibe as cobranças",
+            "get": {
+                "description": "Lista todas as cobranças",
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cobrança"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cobranças não encontradas"
+                    }
+                }
+            }
+        },
+        "/cobranca/{id}": {
+            "get": {
+                "description": "Exibe a cobrança pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cobrança"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cobrança não encontrada"
+                    }
+                }
+            },
+            "put": {
+                "description": "Atualiza a cobrança pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cobrança"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cobrança atualizada com sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/cancelamento": {
+            "description": "Exibe os cancelamentos",
+            "get": {
+                "description": "Lista todas os cancelamentos",
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cancelamento"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cancelamentos não encontrados"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cria um cancelamento",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cancelamento"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cancelamento realizado com Sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/cancelamento/{id}": {
+            "get": {
+                "description": "Exibe o cancelamento pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cancelamento"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Cancelamento não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "description": "Atualiza o cancelamento pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cancelamento"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cancelamento atualizado com sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/servicos": {
+            "description": "Exibe os serviços",
+            "get": {
+                "description": "Lista todos os serviços",
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Serviços"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Serviços não encontrados"
+                    }
+                }
+            }
+        },
+        "/servicos/{id}": {
+            "get": {
+                "description": "Exibe o serviço pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operação de Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Serviços"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Serviço não encontrado"
+                    }
+                }
+            },
+            "put": {
+                "description": "Atualiza o serviço pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Serviços"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Serviço atualizado com sucesso",
+                        "content": {}
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Usuário": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string",
+                        "example": "Charlingtonglaevionbeecheknavare dos Anjos Mendonça"
+                    },
+                    "matrícula": {
+                        "type": "string",
+                        "example":"ADS010"
+                    },
+                    "período": {
+                        "type": "string",
+                        "example": "2022/2"
+                    },
+                    "faltas": {
+                        "type": "number",
+                        "example": "10"
+                    },
+                    "horário de aula": {
+                        "type": "string",
+                        "example": "13h-18h"
+                    }
+                }
+            },
+            "Cobrança": {
+                "type": "object",
+                "properties": {
+                    "cobranca": {
+                        "type": "string",
+                        "example": "01"
+                    },
+                    "vencimento": {
+                        "type": "string",
+                        "example":"01/01/2022"
+                    },
+                    "valor": {
+                        "type": "number",
+                        "example": "500.00"
+                    },
+                    "situação": {
+                        "type": "string",
+                        "example": "Pago ou Em atraso"
+                    }
+                }
+            },
+            "Cancelamento": {
+                "type": "object",
+                "properties": {
+                    "matrícula": {
+                        "type": "string",
+                        "example": "ADS010"
+                    },
+                    "status": {
+                        "type": "string",
+                        "example": "Deferido ou Indeferido"
+                    }
+                }
+            },
+            "Serviços": {
+                "type": "object",
+                "properties": {
+                    "turma": {
+                        "type": "string",
+                        "example": "básico 1"
+                    },
+                    "material": {
+                        "type": "string",
+                        "example": "Básico 1, 2 e 3 – English File Elementary Fourth Edition – Students Book + Workbook – Editora: Oxford"
+                    }
+                }
+            }
+        }
+    }
+}
